@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://tutorial/lessons/07_simulation/simulation_lab.gd" id="1"]
+[ext_resource type="Shader" path="res://tutorial/lessons/07_simulation/automatic.gdshader" id="2"]
+[ext_resource type="Shader" path="res://tutorial/lessons/07_simulation/manual.gdshader" id="3"]
+[ext_resource type="Shader" path="res://tutorial/lessons/07_simulation/double_move.gdshader" id="4"]
+[ext_resource type="Shader" path="res://tutorial/lessons/01_playground/soft_dot.gdshader" id="5"]
+[ext_resource type="Texture2D" path="res://tutorial/lessons/01_playground/particle.svg" id="6"]
+
+[sub_resource type="ShaderMaterial" id="Auto"]
+shader = ExtResource("2")
+
+[sub_resource type="ShaderMaterial" id="Manual"]
+shader = ExtResource("3")
+
+[sub_resource type="ShaderMaterial" id="Double"]
+shader = ExtResource("4")
+
+[node name="SimulationLab" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Automatic" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 9
+process_material = SubResource("Auto")
+texture = ExtResource("6")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+fract_delta = false
+interpolate = false
+local_coords = true
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-700, -900, 1400, 2400)
+
+[node name="Manual" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 9
+process_material = SubResource("Manual")
+texture = ExtResource("6")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+fract_delta = false
+interpolate = false
+local_coords = true
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-700, -900, 1400, 2400)
+
+[node name="DoubleMove" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 9
+process_material = SubResource("Double")
+texture = ExtResource("6")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+fract_delta = false
+interpolate = false
+local_coords = true
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-700, -900, 1400, 2400)

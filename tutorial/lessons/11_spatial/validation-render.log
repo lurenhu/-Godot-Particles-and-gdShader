@@ -1,0 +1,6 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+Fixed capture_aabb=[P: (-1.284559, 0.030835, -1.241547), S: (2.571679, 2.499165, 2.558622)]
+Billboard capture_aabb=[P: (-1.284559, 0.030835, -1.241547), S: (2.571679, 2.499165, 2.558622)]
+LESSON_11_TEST_OK

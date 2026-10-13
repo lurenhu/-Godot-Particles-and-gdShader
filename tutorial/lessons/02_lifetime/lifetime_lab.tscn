@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://g41bjc8sj4w2"]
+
+[ext_resource type="Script" uid="uid://c6ofhk3d7ooc4" path="res://tutorial/lessons/02_lifetime/lifetime_lab.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://diu7ewivwef3c" path="res://tutorial/lessons/01_playground/particle.svg" id="2"]
+[ext_resource type="Material" uid="uid://gafdxdb7nqd7" path="res://tutorial/lessons/02_lifetime/sparks.tres" id="4"]
+[ext_resource type="Material" uid="uid://ocnmnoy3cs0h" path="res://tutorial/lessons/02_lifetime/smoke.tres" id="5"]
+[ext_resource type="Material" uid="uid://uaqwr6dwvyu6" path="res://tutorial/lessons/02_lifetime/impact.tres" id="6"]
+
+[node name="LifetimeLab" type="Control" unique_id=1114228943]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1193807192]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.035, 0.05, 0.08, 1)
+
+[node name="Stage" type="HBoxContainer" parent="." unique_id=252570650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 255.0
+offset_right = -24.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="sparks" type="Control" parent="Stage" unique_id=706507212]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Particles" type="GPUParticles2D" parent="Stage/sparks" unique_id=1128535104]
+position = Vector2(160, 250)
+amount = 48
+texture = ExtResource("2")
+lifetime = 1.8
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-800, -800, 1600, 1600)
+process_material = ExtResource("4")
+
+[node name="smoke" type="Control" parent="Stage" unique_id=1310115996]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Particles" type="GPUParticles2D" parent="Stage/smoke" unique_id=1835025858]
+position = Vector2(160, 250)
+amount = 32
+texture = ExtResource("2")
+lifetime = 3.0
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-800, -800, 1600, 1600)
+process_material = ExtResource("5")
+
+[node name="impact" type="Control" parent="Stage" unique_id=821704924]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Particles" type="GPUParticles2D" parent="Stage/impact" unique_id=796109143]
+position = Vector2(160, 250)
+emitting = false
+amount = 40
+texture = ExtResource("2")
+lifetime = 0.85
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-800, -800, 1600, 1600)
+process_material = ExtResource("6")

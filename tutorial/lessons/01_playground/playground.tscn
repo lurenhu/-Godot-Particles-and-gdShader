@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dbv2yaweuxh74"]
+
+[ext_resource type="Script" uid="uid://ddhxqyc5f2mqh" path="res://tutorial/lessons/01_playground/playground.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://diu7ewivwef3c" path="res://tutorial/lessons/01_playground/particle.svg" id="2"]
+[ext_resource type="Shader" uid="uid://qk0u183ontdd" path="res://tutorial/lessons/01_playground/soft_dot.gdshader" id="3"]
+
+[sub_resource type="Gradient" id="Gradient_fade"]
+offsets = PackedFloat32Array(0, 0.3148148, 0.65, 1)
+colors = PackedColorArray(0.3, 0.8, 1, 1, 0.96469337, 0.5529866, 0.5186801, 1, 0.3019608, 0.8, 0.043137256, 1, 0.3019608, 0.8, 0.24705882, 0.20392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture_fade"]
+gradient = SubResource("Gradient_fade")
+
+[sub_resource type="ParticleProcessMaterial" id="Process_shared"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 22.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 110, 0)
+scale_min = 0.55
+scale_max = 0.55
+color_ramp = SubResource("GradientTexture_fade")
+
+[sub_resource type="ShaderMaterial" id="Draw_dot"]
+shader = ExtResource("3")
+shader_parameter/opacity = 1.0
+shader_parameter/ignore_particle_color = false
+
+[node name="Lesson01" type="Control" unique_id=1712438302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1824547762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.035, 0.05, 0.08, 1)
+
+[node name="Stage" type="HBoxContainer" parent="." unique_id=1385905386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 190.0
+offset_right = -24.0
+offset_bottom = -94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Left" type="Control" parent="Stage" unique_id=257825419]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Particles" type="GPUParticles2D" parent="Stage/Left" unique_id=50872074]
+position = Vector2(260, 220)
+amount = 48
+texture = ExtResource("2")
+lifetime = 2.0
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+local_coords = true
+process_material = SubResource("Process_shared")
+
+[node name="Right" type="Control" parent="Stage" unique_id=1893689691]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Particles" type="GPUParticles2D" parent="Stage/Right" unique_id=917348546]
+material = SubResource("Draw_dot")
+position = Vector2(260, 220)
+amount = 48
+texture = ExtResource("2")
+lifetime = 2.0
+use_fixed_seed = true
+seed = 137
+visibility_rect = Rect2(-500, -500, 1000, 1000)
+local_coords = true
+process_material = SubResource("Process_shared")

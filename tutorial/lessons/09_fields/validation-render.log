@@ -1,0 +1,13 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 5060 Ti
+
+preview.png bounds=[P: (-187.9903, -178.7575), S: (354.0352, 340.7402)]
+speed.png bounds=[P: (-187.9903, -178.7575), S: (354.0352, 340.7402)]
+distance.png bounds=[P: (-187.9903, -178.7575), S: (354.0352, 340.7402)]
+outward.png bounds=[P: (-484.3821, -485.2512), S: (967.7985, 961.8309)]
+transformed.png bounds=[P: (-154.2961, -185.334), S: (331.8246, 350.8047)]
+wrong_space.png bounds=[P: (-179.9786, -208.4951), S: (388.8371, 411.009)]
+center.png bounds=[P: (-24.0, -24.0), S: (48.0, 48.0)]
+fps15.png bounds=[P: (-179.7966, -175.3369), S: (340.3368, 336.7899)]
+moving.png bounds=[P: (-247.016, -208.4951), S: (445.1855, 364.1518)]
+LESSON_09_CAPTURE_OK
